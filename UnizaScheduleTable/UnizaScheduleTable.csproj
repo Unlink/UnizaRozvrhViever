@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>KST.UnizaSchedule.Table</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnizaScheduleApi\UnizaScheduleApi.csproj" />
+  </ItemGroup>
+
+</Project>

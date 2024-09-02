@@ -1,0 +1,92 @@
+﻿@page "/"
+@using KST.UnizaSchedule.Table
+@using KST.UnizaSchedule.Api
+@using KST.UnizaSchedule.Api.Enums
+@using KST.UnizaSchedule.Api.ScheduleRequests
+@using RozvrhUniza.Components
+
+@inject ILogger<Home> Logger
+
+<PageTitle>Prehladny rozvrh</PageTitle>
+
+
+<form onsubmit="return false;">
+    <div class="mb-3">
+        <label class="form-label">Kód predmetu</label>
+        <input type="text" class="form-control" @bind="_subject" maxlength="10">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Stupeň</label>
+        <select class="form-select" @bind="_studyForm">
+            <option selected="@(_studyForm == UnizaStudyForm.BachalorStudy)" value="@UnizaStudyForm.BachalorStudy">BC</option>
+            <option selected="@(_studyForm == UnizaStudyForm.MasterStudy)" value="@UnizaStudyForm.MasterStudy">Ing</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Ročník</label>
+        <input type="number" min="1" max="3" step="1" class="form-control" @bind="_studyYear">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Semester</label>
+        <select class="form-select" @bind="_semester">
+            <option selected="@(_semester == Semester.Winter)" value="@Semester.Winter">Zima</option>
+            <option selected="@(_semester == Semester.Summer)" value="@Semester.Summer">Leto</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="LoadRozvrh">Submit</button>
+</form>
+
+@if (_sheduleData != null)
+{
+    <ScheduleView Data="@this._sheduleData"/>
+}
+
+@if (_hasError)
+{
+    <div class="alert alert-danger" role="alert">
+        Rozvrh nenajdeny!
+    </div>
+}
+
+@code {
+    private string _subject = "6BI0011";
+    private UnizaStudyForm _studyForm = UnizaStudyForm.BachalorStudy;
+    private int _studyYear = 1;
+    private int _year = DateTime.Now.Year;
+    private Semester _semester = Semester.Winter;
+    private bool _hasError = false;
+
+    private GroupedScheduleTable? _sheduleData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+
+    private async Task LoadRozvrh()
+    {
+        this._sheduleData = null;
+        _hasError = false;
+        try
+        {
+            this._sheduleData = (await ScheduleApi.GetUnizaScheduleContentAsync(new SubjectScheduleRequest(
+                UnizaFaculty.FRI, 
+                _studyForm, 
+                _studyYear, 
+                _subject, 
+                _year, 
+                _semester)))
+                .MergeMultipleTeachers()
+                .ToTable()
+                .GroupSameBlocks();
+            _hasError = false;
+        }
+        catch (Exception ex)
+        {
+            _hasError = true;
+            Logger.LogError(ex, "Fail to load schedule");
+        }
+        StateHasChanged();
+    }
+
+}
