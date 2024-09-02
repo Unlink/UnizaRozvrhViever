@@ -1,0 +1,129 @@
+/* /Components/ScheduleView.razor.rz.scp.css */
+table[b-67l2i2f16c] {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    border: 2px solid black;
+    margin: 5px;
+}
+
+table th[b-67l2i2f16c] {
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid black;
+   background: #ecf0f1;
+   padding: 2px;
+}
+
+table td[b-67l2i2f16c] {
+    font-size: 12px;
+    vertical-align: top;
+    overflow: hidden;
+    width: auto;
+    border: 1px dotted #95a5a6;
+}
+
+table tbody tr[b-67l2i2f16c] {
+    height: 100px;
+}
+
+
+table thead[b-67l2i2f16c]  {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+table thead tr[b-67l2i2f16c] {
+    height: 30px;
+}
+
+table tr th:first-child[b-67l2i2f16c] {
+    width: 150px;
+}
+
+table td.blok[b-67l2i2f16c] {
+    border: black solid 1px;
+}
+
+table .first-day-row[b-67l2i2f16c] {
+    border-top: 2px solid black;
+}
+/* /Layout/MainLayout.razor.rz.scp.css */
+.page[b-wfn32geh4u] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-wfn32geh4u] {
+    flex: 1;
+}
+
+.sidebar[b-wfn32geh4u] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-wfn32geh4u] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-wfn32geh4u]  a, .top-row[b-wfn32geh4u]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-wfn32geh4u]  a:hover, .top-row[b-wfn32geh4u]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-wfn32geh4u]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row[b-wfn32geh4u] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-wfn32geh4u]  a, .top-row[b-wfn32geh4u]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-wfn32geh4u] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-wfn32geh4u] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-wfn32geh4u] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-wfn32geh4u]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-wfn32geh4u], article[b-wfn32geh4u] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
