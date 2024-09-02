@@ -9,8 +9,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
+permissions:
+  contents: write
+  
 jobs:
-  build:
+  build-and-publish:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
 
