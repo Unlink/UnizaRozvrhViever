@@ -120,10 +120,10 @@ namespace RozvrhUniza
         }
     }
 
-    public record GroupedScheduleItem(LessonType LessonType, string TeacherName, string RoomName, string Group,
+    public record GroupedScheduleItem(LessonType LessonType, string TeacherName, string RoomName, string Group, string Subject,
         int Duration)
     {
-        public GroupedScheduleItem(ScheduleItem item, int blockDuration) : this(item.LessonType, item.TeacherName, item.RoomName, item.Group, blockDuration)
+        public GroupedScheduleItem(ScheduleItem item, int blockDuration) : this(item.LessonType, item.TeacherName, item.RoomName, item.Group, item.Subject, blockDuration)
         {
         }
     }

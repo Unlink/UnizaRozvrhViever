@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using KST.UnizaSchedule.Api.ScheduleRequests;
 
 namespace KST.UnizaSchedule.Api
@@ -32,5 +35,21 @@ namespace KST.UnizaSchedule.Api
 				.ThenBy(x => x.BlockNumber)
 				.Distinct();
 		}
-	}
+
+        public static async Task<IEnumerable<UnizaTeacher>> GetUnizaTeachers(string query, CancellationToken ct)
+        {
+            var unizaUrl = "https://vzdelavanie.uniza.sk/vzdelavanie/rozvrh_search2.php?qs=1&q=" + HttpUtility.UrlEncode(query);
+            using var httpClient = new HttpClient();
+
+            var response = await httpClient.GetAsync("https://corsproxy.io?"+ HttpUtility.UrlEncode(unizaUrl), ct);
+            response.EnsureSuccessStatusCode();
+            var responseObject = await JsonSerializer.DeserializeAsync<TeacherResponse[]>(await response.Content.ReadAsStreamAsync(), cancellationToken: ct);
+            return responseObject.Select(x => new UnizaTeacher(
+                x.value.Replace("rozvrh2.php?sq=1&id=", ""),
+                x.label,
+                x.desc));
+        }
+
+        private record TeacherResponse(string value, string label, string desc);
+    }
 }

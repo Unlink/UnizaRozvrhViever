@@ -38,12 +38,28 @@
                                         <strong>prednáška</strong><br/>
                                         @item.TeacherName<br/>
                                         @item.RoomName
+                                        @if (ShowSubject)
+                                        {
+                                            <br/>
+                                            @item.Subject
+                                        }
+                                    }
+                                    else if (item.LessonType == LessonType.Blocked)
+                                    {
+                                        <strong>blok</strong>
+                                        <br />
+                                        @item.TeacherName
                                     }
                                     else
                                     {
                                         @item.TeacherName<br/>
                                         @item.Group<br/>
                                         @item.RoomName
+                                        @if (ShowSubject)
+                                        {
+                                            <br/>
+                                            @item.Subject
+                                        }
                                     }
                                 </td>
                             }
@@ -64,6 +80,9 @@
     [Parameter]
     public GroupedScheduleTable? Data { get; set; }
 
+    [Parameter]
+    public bool ShowSubject { get; set; } = false;
+
     private static string[] Colors = new[]
     {
         "#1abc9c",
@@ -82,6 +101,11 @@
 
     private string GetColor(GroupedScheduleItem item)
     {
+        if (item.LessonType == LessonType.Blocked)
+        {
+            return "#bdc3c7";
+        }
+
         if (_colorMap.TryGetValue(item.TeacherName, out var value))
         {
             return Colors[value];

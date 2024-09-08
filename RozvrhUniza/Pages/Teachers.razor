@@ -1,0 +1,157 @@
+﻿@page "/teachers"
+@using KST.UnizaSchedule.Table
+@using KST.UnizaSchedule.Api
+@using KST.UnizaSchedule.Api.Enums
+@using KST.UnizaSchedule.Api.ScheduleRequests
+@using RozvrhUniza.Components
+
+@inject ILogger<Home> Logger
+
+<PageTitle>Prehladny rozvrh - Ucitelia</PageTitle>
+
+
+<form onsubmit="return false;">
+    <div class="mb-3">
+        <label class="form-label">Vybraní učitelia</label>
+        <ul class="list-group">
+            @foreach (var t in _teachers)
+            {
+                <li class="list-group-item">@t.Name <button class="ms btn btn-sm btn-danger" @onclick="() => _teachers.Remove(t)">x</button></li>
+            }
+        </ul>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pridaj</label>
+        <input type="text" class="form-control" value="@_name" @oninput="InputChanged" @ref="_elRef">
+        @if (_suggestions.Any())
+        {
+            <ul class="dropdown-menu d-block">
+                @foreach (var s in _suggestions)
+                {
+                    <li @onclick="() => AddTeacher(s)"><a class="dropdown-item">@s.Name</a></li>
+                }
+            </ul>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="LoadRozvrh">Submit</button>
+</form>
+
+@if (_sheduleData != null)
+{
+    <ScheduleView Data="@this._sheduleData" ShowSubject="true"/>
+}
+
+@if (_hasError)
+{
+    <div class="alert alert-danger" role="alert">
+        Rozvrh nenajdeny!
+    </div>
+}
+
+@code {
+
+    private record Teacher(string PersonalNumber, string Name);
+
+    private List<Teacher> _teachers = new();
+    private string _name = "";
+    private List<Teacher> _suggestions = new();
+    private CancellationTokenSource? _cts;
+
+    private ElementReference _elRef;
+
+
+    
+    private bool _hasError = false;
+
+    private GroupedScheduleTable? _sheduleData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _elRef.FocusAsync();
+        }
+    }
+
+    private async Task LoadRozvrh()
+    {
+        this._sheduleData = null;
+        _hasError = false;
+        try
+        {
+            var schedules = new List<ScheduleContent>();
+            foreach (var teacherSchedule in _teachers)
+            {
+                schedules.AddRange((
+                    await ScheduleApi.GetUnizaScheduleContentAsync(new TeacherScheduleRequest(teacherSchedule.PersonalNumber)))
+                    .Select(x => new ScheduleContent
+                    {
+                        BlockNumber = x.BlockNumber,
+                        CourseName = x.CourseName,
+                        Day = x.Day,
+                        TeacherName = teacherSchedule.Name,
+                        Group = x.Group,
+                        LessonType = x.LessonType,
+                        RoomName = x.RoomName,
+                        SubjectShortcut = x.SubjectShortcut
+                    }));
+            }
+
+            this._sheduleData = schedules
+                .OrderBy(x => x.Day)
+                .ThenBy(x => x.BlockNumber)
+                .Distinct()
+                .MergeMultipleBlocksOfOnePerson()
+                //.MergeMultipleTeachers()
+                .ToTable()
+                .GroupSameBlocks();
+            _hasError = false;
+        }
+        catch (Exception ex)
+        {
+            _hasError = true;
+            Logger.LogError(ex, "Fail to load schedule");
+        }
+        StateHasChanged();
+    }
+
+
+    private async Task InputChanged(ChangeEventArgs arg)
+    {
+        var text = arg.Value?.ToString();
+        if (!string.IsNullOrWhiteSpace(text))
+        {
+            _name = text;
+            var cts = new CancellationTokenSource();
+            _cts?.Cancel();
+            _cts = cts;
+            try
+            {
+                var result = await ScheduleApi.GetUnizaTeachers(_name, cts.Token);
+                _suggestions = result.Select(x => new Teacher(x.Id, x.Name)).ToList();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "fail to load teachers");
+            }
+        }
+    }
+
+    private async Task AddTeacher(Teacher teacher)
+    {
+        if (!_teachers.Contains(teacher))
+        {
+            _teachers.Add(teacher);
+        }
+        _name = "";
+        _suggestions = new List<Teacher>();
+        await _elRef.FocusAsync();
+    }
+
+}

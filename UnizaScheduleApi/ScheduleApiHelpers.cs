@@ -5,7 +5,7 @@ using KST.UnizaSchedule.Api.ScheduleRequests;
 
 namespace KST.UnizaSchedule.Api
 {
-	internal static class ScheduleApiHelpers
+	public static class ScheduleApiHelpers
 	{
 		public static string BuildQuery(ScheduleRequest scheduleRequest)
 		{
