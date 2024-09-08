@@ -25,7 +25,7 @@
       "url": "_framework\/icudt_no_CJK.dat.br"
     },
     {
-      "hash": "sha256-rlYTPWv+ZftIyQKFqtTEwTkiZgrRWJjSCsq6HSde81A=",
+      "hash": "sha256-gNlnvUMV1aEDsh5YU4XRDBZb7LaSJMceRffvvXBZA74=",
       "url": "_framework\/blazor.boot.json.br"
     },
     {
@@ -37,11 +37,11 @@
       "url": "_framework\/dotnet.native.wasm.br"
     },
     {
-      "hash": "sha256-evyXsyrcbJ5yuguzh8dGGHon8aU1UmNo2EV7kiU9YYs=",
+      "hash": "sha256-ozX6TYhhDmTiVw51HY4wY3vBsgmdtg9jVmkEFm\/efsI=",
       "url": "_framework\/Microsoft.AspNetCore.Components.wasm.br"
     },
     {
-      "hash": "sha256-oOTysrdxSLzADWVDIuTPEHdKYjJ1fKQQ2WIRy+K4lOo=",
+      "hash": "sha256-CiNuRAyo6Uk1faqeuVmzt7RPQEkLszwYORrwwd6gkdE=",
       "url": "_framework\/Microsoft.AspNetCore.Components.Web.wasm.br"
     },
     {
@@ -97,7 +97,7 @@
       "url": "_framework\/Microsoft.JSInterop.WebAssembly.wasm.br"
     },
     {
-      "hash": "sha256-ExQtJOYDqxIGfIbgeENsyiNn7EhhI94jor1CFuZUZRs=",
+      "hash": "sha256-CMMISfmWn8m7xfnfuiXH+XreURU4ifnYxoOxN3XGT7c=",
       "url": "_framework\/RozvrhUniza.wasm.br"
     },
     {
@@ -113,7 +113,7 @@
       "url": "_framework\/System.Collections.Specialized.wasm.br"
     },
     {
-      "hash": "sha256-Uqdh0ErotKp8XKeKHq0nCTiIzg0tFSWg\/1ym9t\/TY08=",
+      "hash": "sha256-gXgJ\/zede9aT+AhCHNxJ2KwfuLqX7nEQacMgrJKEokM=",
       "url": "_framework\/System.Collections.wasm.br"
     },
     {
@@ -137,7 +137,7 @@
       "url": "_framework\/System.Diagnostics.DiagnosticSource.wasm.br"
     },
     {
-      "hash": "sha256-a6NJJjJkSZRMv\/LB4HVGTLpwFr6zLCrS718Bv7GVrxU=",
+      "hash": "sha256-BCzSf6xFUqQCXoikTKp865h79R4QsLlpkiQHm5Hn93c=",
       "url": "_framework\/System.Linq.wasm.br"
     },
     {
@@ -145,7 +145,7 @@
       "url": "_framework\/System.Memory.wasm.br"
     },
     {
-      "hash": "sha256-0YdAq2xn6FYRmXk32l2WxNTRa0blIQLu67kalQ7IfsM=",
+      "hash": "sha256-GwPO49ZT+wkSK2AONcumlr2M1ozv+IyaS7yh1n+uNQc=",
       "url": "_framework\/System.Net.Http.wasm.br"
     },
     {
@@ -169,7 +169,7 @@
       "url": "_framework\/System.Runtime.InteropServices.JavaScript.wasm.br"
     },
     {
-      "hash": "sha256-ko8iN6aeIr\/FyUs44hP1LUxkWNZutl1bwopMmOcB10Y=",
+      "hash": "sha256-GbUAlYmS7VkA5WuaF5+K76Q5ZR2CayMxmr7LQeBt9+k=",
       "url": "_framework\/System.Runtime.wasm.br"
     },
     {
@@ -193,11 +193,11 @@
       "url": "_framework\/System.Web.HttpUtility.wasm.br"
     },
     {
-      "hash": "sha256-63AVGxLyknSudd\/mH0RGJWnGtFcmX172B3Msp4rw+O0=",
+      "hash": "sha256-P7ueg7pYhqIFnUHb4wScYozj\/Go6niIF4fK1DxLS32g=",
       "url": "_framework\/UnizaScheduleApi.wasm.br"
     },
     {
-      "hash": "sha256-1FXn4QJ7b1m3ECNsxWIVshrd7cVhpYa4IL0NCIUqYDY=",
+      "hash": "sha256-MoXBdQ1z+pD98a65Fhtrn+jP1rQD3Y+4YkeZWHSCeoo=",
       "url": "_framework\/UnizaScheduleTable.wasm.br"
     },
     {
@@ -245,5 +245,5 @@
       "url": "brotliloader.min.js"
     }
   ],
-  "version": "stoPo5Vf"
+  "version": "KT8l2mOX"
 };
