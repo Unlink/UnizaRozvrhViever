@@ -25,7 +25,7 @@
       "url": "_framework\/icudt_no_CJK.dat.br"
     },
     {
-      "hash": "sha256-S\/++0r2IMSkuRlY0KzdfNDNT2LtH67SMttBfU2bSS1w=",
+      "hash": "sha256-LxMch8IJF9UwELAd\/\/ZM\/TQ3V74caNIbHkDUJk3ouoo=",
       "url": "_framework\/blazor.boot.json.br"
     },
     {
@@ -97,7 +97,7 @@
       "url": "_framework\/Microsoft.JSInterop.WebAssembly.wasm.br"
     },
     {
-      "hash": "sha256-pz2gZsNeII3gud7EvNRQt+OPkK7oPFXFk2SKUfvxLvM=",
+      "hash": "sha256-vTm0oCq8UnT04L9EH8tA\/qc8pYIArDUwMkxT8mdiKpY=",
       "url": "_framework\/RozvrhUniza.wasm.br"
     },
     {
@@ -193,11 +193,11 @@
       "url": "_framework\/System.Web.HttpUtility.wasm.br"
     },
     {
-      "hash": "sha256-PDHTVIy9zhbevU9UKol8VBJzjLX23Wznqa4k8WWkRP8=",
+      "hash": "sha256-vPC3zVeFdZJriCHbHSP4aEs18fSGd4NDxBxcXHVQ\/FI=",
       "url": "_framework\/UnizaScheduleApi.wasm.br"
     },
     {
-      "hash": "sha256-+SAGLG90gimFzQDVDOISqvplLGJVPeqxmHo7Jx5wq5o=",
+      "hash": "sha256-ozhzOdsyJE3GqQRflh1BlynUUTzQ550ZV8hn1kuImTY=",
       "url": "_framework\/UnizaScheduleTable.wasm.br"
     },
     {
@@ -245,5 +245,5 @@
       "url": "brotliloader.min.js"
     }
   ],
-  "version": "DPtSbXJx"
+  "version": "93zGAA+t"
 };

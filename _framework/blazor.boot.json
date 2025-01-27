@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "RozvrhUniza",
   "resources": {
-    "hash": "sha256-rzj9tlfk+ETlRu9ydTtM2ugLHXWpedHp4TXQeb2Lvhs=",
+    "hash": "sha256-+pGmfdAcCR8n7cu3roQZ5w2rjgaTpl1lsYLhaU86cGY=",
     "jsModuleNative": {
       "dotnet.native.8.0.12.mmvu63e21a.js": "sha256-jrPJmtexJkEqObr/4Y8hV+pZYxYzzU2NO3mCAOQhVdQ="
     },
@@ -32,7 +32,7 @@
       "Microsoft.Extensions.Primitives.wasm": "sha256-6187ynEahDlSLMBvD4vAmiLpZ3clRb5xu6rM7O8AxNo=",
       "Microsoft.JSInterop.wasm": "sha256-YAuov+N9Jt7hvJRt9QsxNvhTGrzE64Y3sfAZ6hP1Z/A=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-sLSiCKh0RQEV/2cl05tr7wOLWzExQfPZovvpqYLJduQ=",
-      "RozvrhUniza.wasm": "sha256-6V6TyfvccLJ5qDU+7ioGmFYpVmbbNQK78iKtW9PlSE0=",
+      "RozvrhUniza.wasm": "sha256-3cefGHBi+eO7BN9vZutEyIW3OSgo2253gmxzQD2RyF0=",
       "System.Collections.Concurrent.wasm": "sha256-LHI8IyZky5sd5CRDWgdtEuc1x+nSd/3QCBtoWfvrcMY=",
       "System.Collections.NonGeneric.wasm": "sha256-wR+FGSmPYs61ygAVu3+R5czpGSSc3G0rSbBuZ4jFYGc=",
       "System.Collections.Specialized.wasm": "sha256-uRmPU5YbqLaAyuW4jJ4rYIB+kguHhjtkCXcwUm8GfWQ=",
@@ -56,8 +56,8 @@
       "System.Text.RegularExpressions.wasm": "sha256-+U9Zl+0OTyKYWW7tAgmMJx39VSRUoPMLl0L10+zb+AI=",
       "System.wasm": "sha256-tMf6lZhvCyLVXi3StlyVuo8/Ozl9VCeSEJXsZ9kx8fE=",
       "System.Web.HttpUtility.wasm": "sha256-h9Mhq4gFns+wJoWYsJTd6Ovypkn5zOmVzgzYnBjdWLk=",
-      "UnizaScheduleApi.wasm": "sha256-BW0gcE8chPSGwKiowzxge9gRHOVX+U8rhOZzubKilbQ=",
-      "UnizaScheduleTable.wasm": "sha256-3J7oa9t1XqQHdDVIkQIZmXFc9G5oqTuBSl3yvIpviq0="
+      "UnizaScheduleApi.wasm": "sha256-8ut4w/4Ty5btYWmaVgwicx865ptSlgVWlWn2MR3PA60=",
+      "UnizaScheduleTable.wasm": "sha256-5YZa/ueu1g+n+R7L3BMIYo18ly0mZU110F/EQ6LQ8x4="
     }
   },
   "cacheBootResources": true,
