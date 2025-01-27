@@ -41,7 +41,7 @@ namespace KST.UnizaSchedule.Api
             var unizaUrl = "https://vzdelavanie.uniza.sk/vzdelavanie/rozvrh_search2.php?qs=1&q=" + HttpUtility.UrlEncode(query);
             using var httpClient = new HttpClient();
 
-            var response = await httpClient.GetAsync("https://corsproxy.io?"+ HttpUtility.UrlEncode(unizaUrl), ct);
+            var response = await httpClient.GetAsync("https://corsproxy.io?url="+ HttpUtility.UrlEncode(unizaUrl), ct);
             response.EnsureSuccessStatusCode();
             var responseObject = await JsonSerializer.DeserializeAsync<TeacherResponse[]>(await response.Content.ReadAsStreamAsync(), cancellationToken: ct);
             return responseObject.Select(x => new UnizaTeacher(

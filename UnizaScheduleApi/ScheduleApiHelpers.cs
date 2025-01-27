@@ -56,7 +56,7 @@ namespace KST.UnizaSchedule.Api
 
 		public static Semester GetSemester(DateTime date)
 		{
-			if (date.Month >= 9 || date.Month <= 2)
+			if (date.Month >= 9 || date.Month <= 1)
 				return Semester.Winter;
 			else
 				return Semester.Summer;
